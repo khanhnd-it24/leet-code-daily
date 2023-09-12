@@ -37,17 +37,10 @@ Explanation: There is no way to make a positive profit, so we never buy the stoc
 */
 
 func maxProfit(prices []int) int {
-	profit, min := 0, prices[0]
+	profit := 0
 	for i := 1; i < len(prices); i++ {
-		if prices[i] < prices[i-1] {
-			profit += prices[i-1] - min
-			min = prices[i]
-		}
-		if min > prices[i] {
-			min = prices[i]
-		}
-		if i == len(prices)-1 && prices[i] > min {
-			profit += prices[i] - min
+		if prices[i] > prices[i-1] {
+			profit += prices[i] - prices[i-1]
 		}
 	}
 	return profit
