@@ -62,6 +62,24 @@ func productExceptSelf(nums []int) []int {
 	return nums
 }
 
+func productExceptSelf2(nums []int) []int {
+	size := len(nums)
+	res := make([]int, size)
+	res[0], res[size-1] = 1, 1
+
+	for i := 1; i < size; i++ {
+		res[i] = res[i-1] * nums[i-1]
+	}
+
+	rightProduct := 1
+	for i := size - 2; i >= 0; i-- {
+		rightProduct *= nums[i+1]
+		res[i] *= rightProduct
+	}
+
+	return res
+}
+
 var testcase = []domains.Testcase{
 	{
 		In:  []int{1, 2, 3, 4},
@@ -81,6 +99,7 @@ func TestProductArrayExceptSelf(t *testing.T) {
 	for _, tt := range testcase {
 		input := tt.In.([]int)
 		output := tt.Out.([]int)
+		assert.Equal(t, output, productExceptSelf2(input))
 		assert.Equal(t, output, productExceptSelf(input))
 	}
 }
