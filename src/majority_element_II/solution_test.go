@@ -89,6 +89,6 @@ func TestMajorityElementII(t *testing.T) {
 	for _, tt := range testcases {
 		input := tt.In.([]int)
 		output := tt.Out.([]int)
-		assert.Equal(t, output, majorityElement(input))
+		assert.ElementsMatch(t, output, majorityElement(input))
 	}
 }
