@@ -17,6 +17,19 @@ func getRow(rowIndex int) []int {
 	return result
 }
 
+func getRow2(rowIndex int) []int {
+	result := make([]int, rowIndex+1)
+	x := 1
+	result[0] = x
+	result[rowIndex] = x
+	for i := 0; i < rowIndex/2; i++ {
+		x = x * (rowIndex - i) / (i + 1)
+		result[i+1] = x
+		result[rowIndex-i-1] = x
+	}
+	return result
+}
+
 var testcases = []domains.Testcase{
 	{
 		In:  3,
@@ -37,5 +50,6 @@ func TestPascalTriangleII(t *testing.T) {
 		input := tt.In.(int)
 		output := tt.Out.([]int)
 		assert.Equal(t, output, getRow(input))
+		assert.Equal(t, output, getRow2(input))
 	}
 }
