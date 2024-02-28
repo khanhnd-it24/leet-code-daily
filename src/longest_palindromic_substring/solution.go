@@ -85,6 +85,7 @@ func isPalindrome(s string) bool {
 	return true
 }
 
+// Manacher's Algorithm
 func longestPalindrome2(s string) string {
 	T := "^#" + strings.Join(strings.Split(s, ""), "#") + "#$"
 	n := len(T)
