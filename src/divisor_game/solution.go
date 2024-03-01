@@ -26,8 +26,7 @@ Explanation: Alice chooses 1, Bob chooses 1, and Alice has no more moves.
 
 
 Constraints:
-
-1 <= n <= 1000
+ - 1 <= n <= 1000
 */
 
 func divisorGame(n int) bool {
