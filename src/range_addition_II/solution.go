@@ -28,14 +28,13 @@ Constraints:
 */
 
 func maxCount(m int, n int, ops [][]int) int {
-	x, y := m, n
 	for _, op := range ops {
-		if x > op[0] {
-			x = op[0]
+		if m > op[0] {
+			m = op[0]
 		}
-		if y > op[1] {
-			y = op[1]
+		if n > op[1] {
+			n = op[1]
 		}
 	}
-	return x * y
+	return m * n
 }
