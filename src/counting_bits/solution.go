@@ -1,4 +1,4 @@
-package src
+package counting_bits
 
 /*
 Given an integer n, return an array ans of length n + 1 such that for each i (0 <= i <= n),
