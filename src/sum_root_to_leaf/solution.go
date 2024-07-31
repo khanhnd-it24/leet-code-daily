@@ -9,21 +9,21 @@ type TreeNode struct {
 }
 
 func sumNumbers(root *TreeNode) int {
-	sum := 0
-	calc(root, 0, &sum)
-	return sum
+	ans := 0
+	compute(root, &ans, 0)
+	return ans
 }
 
-func calc(root *TreeNode, currentVal int, sum *int) {
-	currentVal = currentVal*10 + root.Val
+func compute(root *TreeNode, ans *int, temp int) {
+	temp = temp*10 + root.Val
 	if root.Left == nil && root.Right == nil {
-		*sum += currentVal
+		*ans += temp
 		return
 	}
 	if root.Left != nil {
-		calc(root.Left, currentVal, sum)
+		compute(root.Left, ans, temp)
 	}
 	if root.Right != nil {
-		calc(root.Right, currentVal, sum)
+		compute(root.Right, ans, temp)
 	}
 }
