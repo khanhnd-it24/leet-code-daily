@@ -27,3 +27,18 @@ func compute(root *TreeNode, ans *int, temp int) {
 		compute(root.Right, ans, temp)
 	}
 }
+
+func sumNumbers2(root *TreeNode) int {
+	return dfs(root, 0)
+}
+
+func dfs(root *TreeNode, num int) int {
+	if root == nil {
+		return 0
+	}
+	tmp := num*10 + root.Val
+	if root.Left == nil && root.Right == nil {
+		return tmp
+	}
+	return dfs(root.Left, tmp) + dfs(root.Right, tmp)
+}

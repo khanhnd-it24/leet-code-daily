@@ -37,5 +37,6 @@ func TestSumRootToLeaf(t *testing.T) {
 
 	for _, tc := range testcases {
 		assert.Equal(t, tc.want, sumNumbers(tc.arg))
+		assert.Equal(t, tc.want, sumNumbers2(tc.arg))
 	}
 }
