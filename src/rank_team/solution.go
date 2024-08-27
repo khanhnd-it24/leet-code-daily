@@ -55,6 +55,9 @@ func rankTeams(votes []string) string {
 }
 
 func rankTeams2(votes []string) string {
+	if len(votes) == 1 {
+		return votes[0]
+	}
 	var count [26][26]int
 	for _, v := range votes {
 		for i, ch := range v {
